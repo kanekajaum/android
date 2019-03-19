@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Aluno "+nome+" inserido", Toast.LENGTH_LONG);
 
+
         }else{
 
             aluno.setNome(nome.getText().toString());
@@ -59,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListarAlunosActivity.class);
         startActivity(intent);
 
+        finish();
     }
 }

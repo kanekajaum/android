@@ -17,6 +17,7 @@ public class AlunoDAO {
         conexao = new Conexao(context);
         banco = conexao.getWritableDatabase();
     }
+
     public long inserir(Aluno aluno){
         ContentValues values = new ContentValues();
         values.put("nome",aluno.getNome());
