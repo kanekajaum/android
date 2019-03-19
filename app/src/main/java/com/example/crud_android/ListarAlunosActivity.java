@@ -89,23 +89,23 @@ public class ListarAlunosActivity extends AppCompatActivity {
     }
 
     public  void excluir(MenuItem item){
-        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-       final Aluno alunoExcluir = alunosFiltrados.get(menuInfo.position);
+            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+           final Aluno alunoExcluir = alunosFiltrados.get(menuInfo.position);
 
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Atenção")
-                .setMessage("Realmente deseja excluir?")
-                .setNegativeButton("Não", null)
-                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        alunosFiltrados.remove(alunoExcluir);
-                        alunos.remove(alunoExcluir);
-                        dao.excluir(alunoExcluir);
-                        listaView.invalidateViews();
-                    }
-                }).create();
-        dialog.show();
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle("Atenção")
+                    .setMessage("Realmente deseja excluir?")
+                    .setNegativeButton("Não", null)
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            alunosFiltrados.remove(alunoExcluir);
+                            alunos.remove(alunoExcluir);
+                            dao.excluir(alunoExcluir);
+                            listaView.invalidateViews();
+                        }
+                    }).create();
+            dialog.show();
     }
     public  void atualizar(MenuItem item){
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();

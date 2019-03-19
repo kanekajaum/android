@@ -45,9 +45,12 @@ public class AlunoDAO {
     }
 
     public void excluir(Aluno a){
+
         banco.delete("aluno","id = ?", new String[]{a.getId().toString()} );
+
     }
     public void atualizar(Aluno aluno){
+
         ContentValues values = new ContentValues();
         values.put("nome",aluno.getNome());
         values.put("cpf",aluno.getCpf());

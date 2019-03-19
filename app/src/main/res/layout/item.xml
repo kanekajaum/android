@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/txt_nome"
-        android:layout_width="392dp"
+        android:layout_width="290dp"
         android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -16,7 +16,7 @@
         android:textAlignment="viewStart"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -25,17 +25,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Telefone:"
+        android:text="Tel: "
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
 
     <TextView
         android:id="@+id/txt_telefone"
-        android:layout_width="148dp"
-        android:layout_height="19dp"
+        android:layout_width="216dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
 
@@ -45,19 +48,30 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="CPF:"
+        android:text="CPF:   "
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/txt_telefone"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/txt_cpf"
-        android:layout_width="137dp"
-        android:layout_height="19dp"
+        android:layout_width="215dp"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nome" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_telefone" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="87dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/ninja"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>
