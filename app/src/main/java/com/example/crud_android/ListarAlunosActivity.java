@@ -16,7 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,9 @@ public class ListarAlunosActivity extends AppCompatActivity {
     private ListView listaView;
     private AlunoDAO dao;
     private List<Aluno> alunos;
-    private List<Aluno> alunosFiltrados = new ArrayList<>();
+    final List<Aluno> alunosFiltrados = new ArrayList<>();
+
+    AlunoAdapter adapter = new AlunoAdapter(this, alunosFiltrados);
 
 
     @Override
@@ -45,7 +49,16 @@ public class ListarAlunosActivity extends AppCompatActivity {
 
         registerForContextMenu(listaView);
 
+        listaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Toast.makeText(getBaseContext(), "Usuario: "+alunosFiltrados.get(position).getNome(), Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater i = getMenuInflater();
@@ -108,7 +121,8 @@ public class ListarAlunosActivity extends AppCompatActivity {
             dialog.show();
     }
     public  void atualizar(MenuItem item){
-        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        AdapterView.AdapterContextMenuInfo menuInfo =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         final Aluno alunoAtualizado = alunosFiltrados.get(menuInfo.position);
         Intent it = new Intent(this, MainActivity.class);
 
@@ -121,6 +135,7 @@ public class ListarAlunosActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -129,4 +144,5 @@ public class ListarAlunosActivity extends AppCompatActivity {
         alunosFiltrados.addAll(alunos);
         listaView.invalidateViews();
     }
+
 }
